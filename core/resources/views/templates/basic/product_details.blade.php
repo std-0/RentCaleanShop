@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-
+ 
             <div class="col-lg-7">
                 <div class="product-details-content product-details">
                     <h4 class="title">{{__($product->name)}}</h4>

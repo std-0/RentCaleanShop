@@ -89,8 +89,8 @@ class CartController extends Controller
             $cart->quantity   = $request->quantity;
             $cart->save();
         }
-
-        return response()->json(['success' => 'ai cumparat!']);
+            $cart_succes = app('translator')->get('Produsul a fost adăugat cu succes!');
+        return response()->json(['success' => $cart_succes]);
 
     }
 
@@ -246,7 +246,8 @@ class CartController extends Controller
 
         $cart_item = Cart::findorFail($id);
         $cart_item->delete();
-        return response()->json(['success' => 'Item Deleted Successfully']);
+        $cart_successs = app('translator')->get('Ați șters cu succes produsul din coș');
+        return response()->json(['success' => $cart_successs]);
     }
 
     public function checkout()

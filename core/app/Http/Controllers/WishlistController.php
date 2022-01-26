@@ -181,7 +181,8 @@ class WishlistController extends Controller
         Artisan::call('cache:clear');
         if($wishlist) {
             $wishlist->delete();
-            return response()->json(['success' => 'Element șters cu succes']);
+            $cart_sucess = app('translator')->get('Element șters cu succes');
+            return response()->json(['success' => $cart_sucess]);
         }
 
         return response()->json(['error' => 'This product isn\'t available in your wishlsit']);
