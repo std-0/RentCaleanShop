@@ -13,6 +13,7 @@
                         <tr class="th-compare">
                             @foreach ($compare_items->pluck('id') as $item)
                             <th class="product-{{ $item }} text-right" >
+                              
                                 <button type="button" data-pid="{{$item}}" class="remove-compare"><i class="las la-trash"></i></button>
                             </th>
                             @endforeach
@@ -124,13 +125,13 @@
         'use strict';
         (function($){
             $('.remove-compare').on('click', function(){
-                id = $(this).data('pid');
-                className = `.product-${id}`;
+                var id = this.getAttribute('data-pid');
+                var className = '.product-'+ this.getAttribute('data-pid');
 
                 var data = {id:id};
                 $.ajax({
                     headers: {"X-CSRF-TOKEN": "{{ csrf_token() }}"},
-                    url: "{{route('del-from-compare', '')}}"+"/"+id,
+                    url: "{{route('del-from-compare', '')}}"+"/"+ id,
                     method:"post",
                     data: data,
                     success: function(response){
@@ -140,8 +141,11 @@
                             $(document).find(className).hide('300')
                         }else{
                             notify('error', response.error);
+                            
                         }
+                        // window.location.replace("/compare");
                     }
+                    
                 });
             });
 

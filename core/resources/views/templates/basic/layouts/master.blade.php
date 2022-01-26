@@ -60,7 +60,7 @@
     <script src="{{ asset($activeTemplateTrue.'js/dev.js') }}"></script>
 
 
-   <div style="display:none;"> {{ $to_notify = app('translator')->get('Acest produs este deja in lista de dorinte!')}}</div>
+    {{ $to_notify = app('translator')->get('Acest produs este deja in lista de dorinte!')}}
 
     <script>
         'use strict';
@@ -399,8 +399,16 @@
                     product_id: product_id
                 }
 
+
+
+
                 if($(this).hasClass('active')){
-                    notify('error', 'Already in the comparison list');
+
+                    var compare_err = '@lang('Acest produs se află deja în lista de comparare!')';
+                    notify('error', compare_err);
+
+
+
                 }else{
                     $.ajax({
                         url: "{{ route('addToCompare') }}",

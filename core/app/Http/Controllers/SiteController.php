@@ -627,19 +627,26 @@ class SiteController extends Controller
                 ]
             ];
             session()->put('compare', $compare);
-            return response()->json(['success' => 'Added to comparison list']);
+            $comparasion_list_add = app('translator')->get('Adăugat în lista de comparare') ;
+            return response()->json(['success' => $comparasion_list_add]);
         }
 
         // if compare list is not empty then check if this product exist
+        $comparasion_list_errror = app('translator')->get('Se află deja în lista de comparare');
+       
         if(isset($compare[$id])) {
-            return response()->json(['error' => 'Already in the comparison list']);
+
+            
+            return response()->json(['error' => $comparasion_list_errror]);
         }
         $compare[$id] = [
             "id" => $product->id
         ];
+        
+        $comparasion_list_add = app('translator')->get('Adăugat în list de comparare') ;
 
         session()->put('compare', $compare);
-        return response()->json(['success' => 'Added to comparison list']);
+        return response()->json(['success' => $comparasion_list_add]);
     }
 
     public function compare()

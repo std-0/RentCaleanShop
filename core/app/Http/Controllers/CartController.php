@@ -68,7 +68,9 @@ class CartController extends Controller
         if($product->track_inventory){
             $stock_qty = showAvailableStock($request->product_id, $selected_attr);
             if($request->quantity > $stock_qty){
-                return response()->json(['error' => 'Sorry your requested amount of quantity is not available in our stock']);
+
+                $request_quantity = app('translator')->get('Scuze,ați ales mai mult decât este în stoc!');
+                return response()->json(['error' => $request_quantity]);
             }
         }
 

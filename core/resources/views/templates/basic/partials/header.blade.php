@@ -277,7 +277,10 @@
                         @foreach ($categories as $category)
                         <li>
                             <a href="{{ route('products.category', ['id'=>$category->id, 'slug'=>slug($category->name)]) }}">
-                                @php echo $category->icon @endphp {{ $category->name }}
+                                <?php
+                                $category_name_tr = app('translator')->get($category->name);
+                                ?>
+                                @php echo $category->icon @endphp {{ $category_name_tr }}
                             </a>
                             <div class="cate-icon">
                                 <i class="las la-angle-down"></i>

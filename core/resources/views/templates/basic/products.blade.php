@@ -282,7 +282,7 @@
                 max: {{$max_price}},
                 values: [ {{$min_price}}, {{$max_price}} ],
                 slide: function( event, ui ) {
-                    $( "#amount" ).val( "{{$general->cur_sym}}" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                    $( "#amount" ).val( "{{$general->cur_sym}}" + ui.values[ 0 ] + " - MDL" + ui.values[ 1 ] );
                     $('input[name=min_price]').val(ui.values[ 0 ]);
                     $('input[name=max_price]').val(ui.values[ 1 ]);
                 },
