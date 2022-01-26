@@ -12,7 +12,7 @@
                 @foreach ($banners as $banner)
                 <div class="col-md-4 col-lg-4 mb-30">
                     <a href="{{ $banner->data_values->link }}" class="d-block overlay-effects">
-                        <img src="{{ getImage('assets/images/frontend/banners_middle/'.$banner->data_values->image, '500x288') }}" class="w-100" alt="@lang('products-offer')">
+                    <a href="/magazin"> <img src="{{ getImage('assets/images/frontend/banners_middle/'.$banner->data_values->image, '500x288') }}" class="w-100" alt="@lang('products-offer')"></a>
                     </a>
                 </div>
                 @endforeach
