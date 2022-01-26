@@ -40,7 +40,7 @@ class WishlistController extends Controller
         }
 
         if($wishlist) {
-            return response()->json(['error' => 'Already in the wish list']);
+            return response()->json(['error' => 'error']);
         }else {
             $wishlist = new Wishlist();
             $wishlist->user_id    = auth()->user()->id??null;
@@ -55,7 +55,8 @@ class WishlistController extends Controller
         ];
 
         session()->put('wishlist', $wishlist);
-        return response()->json(['success' => 'Added to Wishlist']);
+        $added_green = app('translator')->get('Adăugat cu succes în lista de dorinte!');
+        return response()->json(['success' => $added_green]);
     }
 
 

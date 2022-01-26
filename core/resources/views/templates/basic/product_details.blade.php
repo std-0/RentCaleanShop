@@ -140,25 +140,25 @@
 
                         <p class="product-share">
                             <b>@lang('Share'):</b>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" title="@lang('Facebook')">
+                            <a href="https://www.facebook.com/rentcalian.md1" title="@lang('Facebook')">
 
                                 <i class="fab fa-facebook"></i>
                             </a>
 
-                            <a href="http://pinterest.com/pin/create/button/?url={{urlencode(url()->current()) }}&description={{ __($product->name) }}&media={{ getImage('assets/images/product/'. @$product->main_image) }}" title="@lang('Pinterest')">
+                          <a href="https://www.instagram.com/rentcalian.md/" title="@lang('Instagram')">
 
-                                <i class="fab fa-pinterest-p"></i>
+                          <i class="fab fa-instagram"></i>
                             </a>
 
-                            <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{urlencode(url()->current()) }}&amp;title=my share text&amp;summary=dit is de linkedin summary" title="@lang('Linkedin')">
+                            <a href="https://www.youtube.com/channel/UCv2pzcL0Yh0dv-O0kbcLlPA" title="@lang('YoyTube')">
 
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fab fa-youtube"></i>
                             </a>
+                            
+                            <!--<a href="https://www.tiktok.com/@rentcalian.md?lang=ru-RU" title="@lang('TikTok')">
 
-                            <a href="https://twitter.com/intent/tweet?text={{ __($product->name) }}%0A{{ url()->current() }}" title="@lang('Twitter')">
-
-                                <i class="fab fa-twitter"></i>
-                            </a>
+                                <i class="fab fa-tiktok"></i>
+                            </a>-->
                         </p>
                         @php
                             $wCk = checkWishList($product->id);

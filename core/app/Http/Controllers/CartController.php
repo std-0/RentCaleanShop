@@ -76,7 +76,7 @@ class CartController extends Controller
             $cart->quantity  += $request->quantity;
 
             if(isset($stock_qty) && $cart->quantity > $stock_qty){
-                return response()->json(['error' => 'Sorry, You have already added maximum amount of stock']);
+                return app('translator')->get('Ai adaugat cu succes in lista de dorinte!');
             }
 
             $cart->save();
@@ -90,7 +90,7 @@ class CartController extends Controller
             $cart->save();
         }
 
-        return response()->json(['success' => 'Added to Cart']);
+        return response()->json(['success' => 'Adăugat în coș']);
 
     }
 

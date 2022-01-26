@@ -59,6 +59,9 @@
     <script src="{{ asset($activeTemplateTrue.'js/main.js') }}"></script>
     <script src="{{ asset($activeTemplateTrue.'js/dev.js') }}"></script>
 
+
+    {{ $to_notify = app('translator')->get('Acest produs este deja in lista de dorinte!')}}
+
     <script>
         'use strict';
         (function($){
@@ -311,7 +314,8 @@
                     product_id: product_id
                 }
                 if($(this).hasClass('active')){
-                    notify('error', 'Already in the wishlist');
+                   var to_notify = "{{ $to_notify }}"
+                    notify('error', to_notify);
                 }else{
                     $.ajax({
                         url: "{{ route('add-to-wishlist') }}",
