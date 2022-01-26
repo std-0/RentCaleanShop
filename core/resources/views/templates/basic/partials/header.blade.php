@@ -97,9 +97,10 @@
         <div class="header-bottom bg-3 py-3">
             <div class="container">
                 <div class="header-bottom-wrapper d-flex flex-wrap justify-content-between align-items-center">
-                    <div class="view-category d-none d-lg-block  @if(request()->routeIs('home')) d-xl-none @endif">
+                    <!-- <div class="view-category d-none d-lg-block  @if(request()->routeIs('home')) d-xl-none @endif">
                         <a href="javascript:void(0)">@lang('Categories')<i class="las la-angle-down"></i></a>
-                    </div>
+                        
+                    </div> -->
                     <form action="{{route('product.search')}}" method="GET" class="header-search-form mr-auto @if(!request()->routeIs('home')) w-100 @endif" >
                         <div class="header-form-group">
                             <input type="text" name="search_key" value="{{request()->search_key}}" placeholder="@lang('Search')...">

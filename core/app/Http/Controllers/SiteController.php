@@ -167,7 +167,7 @@ class SiteController extends Controller
     public function productsByCategory(Request $request, $id)
     {
         $category               = Category::whereId($id)->firstOrFail();
-        $page_title             = 'Products by Category - '.$category->name;
+        $page_title             = ' '.$category->name;
 
         $categories             = Category::where('parent_id', null)->latest()->get();
         $brand                  = $request->brand?$request->brand:['0'];
@@ -228,7 +228,7 @@ class SiteController extends Controller
     public function productsByBrand(Request $request, $id)
     {
         $brand                  = Brand::whereId($id)->firstOrFail();
-        $page_title             = 'Products by Brand - '.$brand->name;
+        $page_title             = ''.$brand->name;
 
         $categories             = Category::where('parent_id', null)->latest()->get();
         $category_id            = $request->category_id??0;
@@ -627,7 +627,7 @@ class SiteController extends Controller
                 ]
             ];
             session()->put('compare', $compare);
-            $comparasion_list_add = app('translator')->get('Adăugat în lista de comparare') ;
+            $comparasion_list_add = app('translator')->get('Adăugat în lista de comparare');
             return response()->json(['success' => $comparasion_list_add]);
         }
 
