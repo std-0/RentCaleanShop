@@ -13,7 +13,6 @@
                         <tr class="th-compare">
                             @foreach ($compare_items->pluck('id') as $item)
                             <th class="product-{{ $item }} text-right" >
-                              
                                 <button type="button" data-pid="{{$item}}" class="remove-compare"><i class="las la-trash"></i></button>
                             </th>
                             @endforeach

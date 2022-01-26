@@ -9,7 +9,7 @@
                 <div class="col-md-2 mb-4">
                     <div class="cate-item">
                         <a href="{{ route('products.brand', ['id'=>$item->id, 'slug'=>slug($item->name)]) }}" class="cate-inner">
-                            <img class="w-100" src="{{ getImage(imagePath()['brand']['path'].'/'.@$item->logo, imagePath()['brand']['size']) }}" alt="{{ _($item->name) }}">
+                            <img class="w-100" src="{{ getImage(imagePath()['brand']['path'].'/'.@$item->logo, imagePath()['brand']['size']) }}" alt="{{ ($item->name) }}">
                         </a>
                     </div>
                 </div>
