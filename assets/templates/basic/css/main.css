@@ -1815,7 +1815,7 @@ header {
 }
 @media (max-width: 1199px) {
   .category-sidebar {
-    position: fixed;
+    position: fixed!important;
     left: 0;
     top: 0 !important;
     background: #ffffff;

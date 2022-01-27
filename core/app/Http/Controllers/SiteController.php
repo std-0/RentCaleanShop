@@ -556,7 +556,7 @@ class SiteController extends Controller
             return response()->json(['success'=>true, 'payment_status' => $p_status, 'status' => $status]);
         }
         else{
-            $notify = 'No order found';
+            $notify = @app('translator')->get('No order found');
             return response()->json(['success'=>false,'message'=>$notify]);
         }
     }
