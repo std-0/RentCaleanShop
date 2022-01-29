@@ -15,7 +15,7 @@
                 <div class="col-xl-5 col-lg-6">
                     <div class="subscribe-form">
                         <input type="email" placeholder="@lang('Your Email Address')..." name="email">
-                        <button type="button" class="subscribe-btn">@lang('Subscribe')</button>
+                        <button type="button" class="subscribe-btn" style="background-color:red!important;">@lang('Subscribe')</button>
                     </div>
                 </div>
             </div>

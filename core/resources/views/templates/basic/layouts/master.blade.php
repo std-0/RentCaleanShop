@@ -60,7 +60,7 @@
     <script src="{{ asset($activeTemplateTrue.'js/dev.js') }}"></script>
 
 
-    {{ $to_notify = app('translator')->get('Acest produs este deja in lista de dorinte!')}}
+  <div style="display:none;">{{ $to_notify = app('translator')->get('Acest produs este deja in lista de dorinte!')}}</div>  
 
     <script>
         'use strict';

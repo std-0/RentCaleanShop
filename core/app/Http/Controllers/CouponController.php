@@ -32,6 +32,7 @@ class CouponController extends Controller
 
             // Check Minimum Subtotal
             if($request->subtotal < $coupon->minimum_spend){
+                
                 return response()->json(['error' => "Sorry your have to order minmum amount of $coupon->minimum_spend $general->cur_text"]);
             }
 
@@ -42,12 +43,14 @@ class CouponController extends Controller
 
             //Check Limit Per Coupon
             if($coupon->appliedCoupons->count() >= $coupon->usage_limit_per_coupon){
-                return response()->json(['error' => "Sorry your Coupon has exceeded the maximum Limit For Usage"]);
+                $not_cupon = app('translator')->get('Ne pare rău, cuponul dvs. a depășit limita maximă de utilizare');
+                return response()->json(['error' => $not_cupon]);
             }
 
             //Check Limit Per User
             if($coupon->appliedCoupons->where('user_id', auth()->id())->count() >= $coupon->usage_limit_per_user){
-                return response()->json(['error' => "Sorry you have already reached the maximum usage limit for this coupon"]);
+                $f_cupon = app('translator')->get('ne pare rău că ați atins deja limita maximă de utilizare a acestui cupon') ;
+                return response()->json(['error' => $f_cupon]);
             }
 
             $coupon_categories  = $coupon->categories->pluck('id')->toArray();
@@ -58,7 +61,8 @@ class CouponController extends Controller
                 //Check all of the products in cart with coupon's products
                 foreach($request->categories as $cateogires){
                     if(empty(array_intersect($cateogires, $coupon_categories))){
-                        return response()->json(['error' => 'The coupon is not available for some products on your cart.']);
+                        $the_coupon = app('translate')->get('Cuponul nu este disponibil pentru unele produse din coș');
+                        return response()->json(['error' => $the_coupon]);
                     }
                 }
             }

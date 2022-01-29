@@ -219,7 +219,8 @@
 
         $(document).on('click', 'button[name=coupon_apply]', function(){
             var code = $('input[name=coupon_code]').val();
-            var subtotal = formatNumber(('#cartSubtotal').text());
+            // var subtotal = formatNumber(('#cartSubtotal').text());
+            var subtotal = formatNumber(document.getElementById("cartSubtotal").innerText);
 
             $.ajax({
                 headers: {"X-CSRF-TOKEN": "{{ csrf_token() }}"},

@@ -56,7 +56,7 @@
         <div class="footer-copyright">
             <div class="copyright-area d-flex flex-wrap align-items-center justify-content-between">
                 <div class="left" >
-                    <p>{{ __(@$footer->copyright_text) }}</p>
+                   <a href="https://www.artweb.md" >  <p style="color:red!important">{{ __(@$footer->copyright_text) }}</p></a>
                 </div>
                 <ul class="social-icons">
                     @php

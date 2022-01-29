@@ -9,6 +9,7 @@
                     <div class="col-md-6 col-lg-7 col-xl-8">
                         <div class="checkout-wrapper">
                             <h4 class="title text-center">@lang('Shipping Address')</h4>
+
                             <ul class="nav-tabs nav justify-content-center">
                                 <li>
                                     <a href="#self" data-toggle="tab" class="active">@lang('For Yourself')</a>
@@ -31,7 +32,7 @@
                                                     <select name="shipping_method" required>
                                                         <option value="">@lang('Select One')</option>
                                                         @foreach ($shipping_methods as $sm)
-                                                            <option data-shipping="{{$sm->description}}" data-charge="{{$sm->charge}}" value="{{$sm->id}}">{{$sm->name}}</option>
+                                                            <option data-shipping="@lang($sm->description)" data-charge="{{$sm->charge}}" value="{{$sm->id}}"> @lang($sm->name)</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -97,6 +98,7 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="guest">
+                               
                                     <form action="{{route('user.checkout-to-payment', 2)}}" method="post" class="guest-form mb--20">
                                         @csrf
 
@@ -107,7 +109,7 @@
                                                     <select name="shipping_method" id="shipping-method-2" required>
                                                         <option value="">@lang('Select One')</option>
                                                         @foreach ($shipping_methods as $sm)
-                                                            <option data-shipping="{{$sm->description}}" data-charge="{{$sm->charge}}" value="{{$sm->id}}">{{$sm->name}}</option>
+                                                            <option data-shipping="@lang($sm->description)"  data-charge="{{$sm->charge}}" value="{{$sm->id}}">@lang($sm->name)</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -211,6 +213,8 @@
     <!-- Checkout Section Ends Here -->
 
 @endsection
+
+
 
 @push('script')
     <script>

@@ -576,9 +576,11 @@ class SiteController extends Controller
             Subscriber::create([
                 'email' => $request->email
             ]);
-            return response()->json(['success' => 'Subscribed Successfully']);
+            $subscriber = app('translator')->get('V-ați abonat cu succes!');
+            return response()->json(['success' => $subscriber]);
         } else {
-            return response()->json(['error' => 'Already Subscribed']);
+            $not_subscriber = app('translator')->get('Sunteți deja abonat');
+            return response()->json(['error' => $not_subscriber]);
         }
     }
 
@@ -703,7 +705,8 @@ class SiteController extends Controller
             unset($compare[$id]);
             session()->put('compare', $compare);
             $notify[] = ['success', 'Deleted from compare list'];
-            return response()->json(['message' => 'Removed']);
+            $removed = app('translator')->get('Șters');
+            return response()->json(['message' => $removed]);
         }
 
         return response()->json(['error' => 'Something went wrong']);

@@ -288,7 +288,7 @@ class OrderController extends Controller
                 $cart->delete();
             }
 
-            $notify[] = ['success', 'Your order has submitted successfully please wait for a confirmation email'];
+            $notify[] = ['success', 'Comanda dvs. a fost trimisă cu succes, vă rugăm să așteptați un e-mail de confirmare'];
             return redirect()->route('user.home')->withNotify($notify);
         }
 

@@ -7,19 +7,19 @@
                 <ul class="countdown" data-countdown="{{ showDateTime($offer->end_date,'m/d/Y H:i:s') }}">
                     <li>
                         <span class="countdown-title"><span class="days">00</span></span>
-                        <p class="days_text">@lang('Days')</p>
+                        <p class="days_text">@lang('Zile')</p>
                     </li>
                     <li>
                         <span class="countdown-title"><span class="hours">00</span></span>
-                        <p class="hours_text">@lang('Hours')</p>
+                        <p class="hours_text">@lang('Ore')</p>
                     </li>
                     <li>
                         <span class="countdown-title"><span class="minutes">00</span></span>
-                        <p class="minu_text">@lang('Minutes')</p>
+                        <p class="minu_text">@lang('Minute')</p>
                     </li>
                     <li>
                         <span class="countdown-title"><span class="seconds">00</span></span>
-                        <p class="seco_text">@lang('Seconds')</p>
+                        <p class="seco_text">@lang('Secunde')</p>
                     </li>
                 </ul>
             </div>
